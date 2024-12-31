@@ -9,7 +9,7 @@ const FoodCard = ({ item }) => {
                 <h2 className="card-title">{name}</h2>
                 <p className="">{recipe}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-outline border-0 border-b-4 border-orange-400 bg-slate-100 ">Add to Cart</button>
                 </div>
             </div>
         </div>
