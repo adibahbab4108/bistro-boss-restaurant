@@ -5,10 +5,11 @@ import useMenu from "../../hooks/useMenu";
 import FoodCard from "../../components/FoodCard/FoodCard";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+
 const Order = () => {
     const [menu] = useMenu();
     const { category } = useParams()
-    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks']
+    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks', 'offer']
     const initialIndex = categories.indexOf(category)
     const [activeTab, setActiveTab] = useState(initialIndex + 1);
 
@@ -33,13 +34,23 @@ const Order = () => {
                 <a role="tab" className={`tab ${activeTab === 5 ? 'tab-active' : ''}`} onClick={() => setActiveTab(5)} > Drinks</a>
                 <a role="tab" className={`tab ${activeTab === 6 ? 'tab-active' : ''}`} onClick={() => setActiveTab(6)} > Offer</a>
             </div>
-            <div className="grid md: grid-cols-3 gap-10">
-                {activeTab === 1 && salad.map(item => <FoodCard item={item} />)}
-                {activeTab === 2 && pizza.map(item => <FoodCard item={item} />)}
-                {activeTab === 3 && soup.map(item => <FoodCard item={item} />)}
-                {activeTab === 4 && dessert.map(item => <FoodCard item={item} />)}
-                {activeTab === 5 && drinks.map(item => <FoodCard item={item} />)}
-                {activeTab === 6 && offered.map(item => <FoodCard item={item} />)}
+            <div className='max-w-screen-xl mx-auto'>
+
+                <div className="grid md: grid-cols-3 gap-10">
+                    {activeTab === 1 && salad.map(item => <FoodCard item={item} />)}
+                    {activeTab === 2 && pizza.map(item => <FoodCard item={item} />)}
+                    {activeTab === 3 && soup.map(item => <FoodCard item={item} />)}
+                    {activeTab === 4 && dessert.map(item => <FoodCard item={item} />)}
+                    {activeTab === 5 && drinks.map(item => <FoodCard item={item} />)}
+                    {activeTab === 6 && offered.map(item => <FoodCard item={item} />)}
+                </div>
+
+                <div className="join my-16 flex justify-center">
+                    <button className="join-item btn">1</button>
+                    <button className="join-item btn btn-active">2</button>
+                    <button className="join-item btn">3</button>
+                    <button className="join-item btn">4</button>
+                </div>
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ import Cover from "../../shared/Cover/Cover";
 import MenuItem from "../../shared/MenuItem/MenuItem";
 
 const MenuCategory = ({ items, title, img }) => {
+    console.log(items[0]?.category)
     return (
         <div className="pt-10">
             {
@@ -13,7 +14,7 @@ const MenuCategory = ({ items, title, img }) => {
                     <MenuItem key={item._id} item={item} />
                 ))}
             </div>
-            <Link to={`/order/${title}`}>
+            <Link to={`/order/${title ? title: 'offer'}`}>
                 <div className="flex justify-center">
                     <button className='btn btn-outline border-0 border-b-4'>Order your favourite food</button>
                 </div>

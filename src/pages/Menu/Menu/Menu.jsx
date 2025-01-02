@@ -23,17 +23,19 @@ const Menu = () => {
             </Helmet>
             {/* Main Cover */}
             <Cover img={menuImg} title="Our Menu" />
-            <SectionTitile heading="Today's Offer" subHeading="Don't Miss" />
-            {/* Offered menu items */}
-            <MenuCategory items={offered} />
-            {/* Dessert menu items */}
-            <MenuCategory items={dessert} title="dessert" img={dessertImg} />
-            {/* Pizza menu items */}
-            <MenuCategory items={pizza} title="pizza" img={pizzaImg} />
-            {/* Salad menu items */}
-            <MenuCategory items={salad} title="salad" img={saladImg} />
-            {/* Soup menu items */}
-            <MenuCategory items={soup} title="soup" img={soupImg} />
+            <div className='max-w-screen-xl mx-auto'>
+                <SectionTitile heading="Today's Offer" subHeading="Don't Miss" />
+                {/* Offered menu items */}
+                <MenuCategory items={offered} />
+                {/* Dessert menu items */}
+                <MenuCategory items={dessert} title="dessert" img={dessertImg} />
+                {/* Pizza menu items */}
+                <MenuCategory items={pizza} title="pizza" img={pizzaImg} />
+                {/* Salad menu items */}
+                <MenuCategory items={salad} title="salad" img={saladImg} />
+                {/* Soup menu items */}
+                <MenuCategory items={soup} title="soup" img={soupImg} />
+            </div>
         </div>
     );
 };
