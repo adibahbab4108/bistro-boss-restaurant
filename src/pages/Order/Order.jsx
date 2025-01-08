@@ -37,12 +37,12 @@ const Order = () => {
             <div className='max-w-screen-xl mx-auto'>
 
                 <div className="grid md: grid-cols-3 gap-10">
-                    {activeTab === 1 && salad.map(item => <FoodCard item={item} />)}
-                    {activeTab === 2 && pizza.map(item => <FoodCard item={item} />)}
-                    {activeTab === 3 && soup.map(item => <FoodCard item={item} />)}
-                    {activeTab === 4 && dessert.map(item => <FoodCard item={item} />)}
-                    {activeTab === 5 && drinks.map(item => <FoodCard item={item} />)}
-                    {activeTab === 6 && offered.map(item => <FoodCard item={item} />)}
+                    {activeTab === 1 && salad.map(item => <FoodCard key={item._id} item={item} />)}
+                    {activeTab === 2 && pizza.map(item => <FoodCard key={item._id} item={item} />)}
+                    {activeTab === 3 && soup.map(item => <FoodCard key={item._id} item={item} />)}
+                    {activeTab === 4 && dessert.map(item => <FoodCard key={item._id} item={item} />)}
+                    {activeTab === 5 && drinks.map(item => <FoodCard key={item._id} item={item} />)}
+                    {activeTab === 6 && offered.map(item => <FoodCard key={item._id} item={item} />)}
                 </div>
 
                 <div className="join my-16 flex justify-center">

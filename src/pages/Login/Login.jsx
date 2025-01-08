@@ -4,13 +4,14 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Login = () => {
     const [captchaMatch, setCaptchaMatch] = useState(null)
     const { signInUser, setUser, user, loading } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation()
-    console.log(user, loading)
+    console.log(location.state)
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
@@ -33,7 +34,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(location.state.pathname || '/')
+                navigate(location?.state?.pathname || '/')
 
             })
             .catch((error) => {
@@ -101,7 +102,8 @@ const Login = () => {
                             </div>
                         </form>
                         <div>
-                            <p className="text-sm text-gray-600">Don't have an account ?  <Link to="/sign-up" className='btn btn-xs'>Sign Up</Link></p>
+                            <p className="text-sm text-gray-600 px-6">Don't have an account ?  <Link to="/sign-up" className='btn btn-xs'>Sign Up</Link></p>
+                            <SocialLogin />
                         </div>
                     </div>
                 </div>
