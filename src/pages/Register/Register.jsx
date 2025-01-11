@@ -20,7 +20,7 @@ const Register = () => {
                 console.log(loggedUser)
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        // create user entry in the databse
+                        // create user entry in the database
                         const userInfo = {
                             name: data.name,
                             email: data.email,
@@ -57,8 +57,7 @@ const Register = () => {
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Sign Up</h1>
                         <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
+                            Have a blast in your tongue
                         </p>
                     </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -117,7 +116,7 @@ const Register = () => {
                         </form>
                         <div>
                             <p className="text-sm text-gray-600 px-6">Already have an account ?  <Link to="/login" className='btn btn-xs'>Sign Up</Link></p>
-                            <SocialLogin/>
+                            <SocialLogin />
                         </div>
                     </div>
                 </div>
