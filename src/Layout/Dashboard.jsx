@@ -1,14 +1,16 @@
 import React from 'react';
-import { FaAd, FaBars, FaChair, FaEnvelope, FaHome, FaList, FaShoppingCart, FaStar, FaUsers, FaUtensils } from 'react-icons/fa';
+import {FaBars, FaChair, FaEnvelope, FaHome, FaList, FaShoppingCart, FaStar, FaUsers, FaUtensils } from 'react-icons/fa';
 import { FaCalculator } from 'react-icons/fa6';
 import { NavLink, Outlet } from 'react-router-dom';
 import useCart from '../hooks/useCart';
 import { MdAssignment } from 'react-icons/md';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
     const [cart] = useCart()
 
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    
 
     return (
         <div className='flex'>
@@ -26,7 +28,7 @@ const Dashboard = () => {
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/add-items">
-                                        <FaUtensils/>
+                                        <FaUtensils />
                                         Add Items
                                     </NavLink>
                                 </li>
@@ -45,7 +47,7 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to="/dashboard/users">
                                         <FaUsers />
-                                     All Users
+                                        All Users
                                     </NavLink>
                                 </li>
                             </>
