@@ -19,7 +19,7 @@ const ManageItems = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const { data } = await axiosSecure.delete(`/menu/${item._id}`)
-                console.log(data)
+               
                 if (data.deletedCount > 0) {
                     refetch()
                     Swal.fire({

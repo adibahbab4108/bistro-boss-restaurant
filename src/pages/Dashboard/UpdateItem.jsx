@@ -15,7 +15,7 @@ const UpdateItem = () => {
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const onSubmit = async (data) => {
-        console.log(data)
+        
         const imageFile = {
             image: data.image[0],
         }
@@ -24,7 +24,6 @@ const UpdateItem = () => {
                 'Content-Type': 'multipart/form-data',
             }
         })
-        console.log(res.data)
         if (res.data.success) {
             const menuItem = {
                 name: data.name,
@@ -35,7 +34,7 @@ const UpdateItem = () => {
 
             }
             const { data: newMenuRes } = await axiosSecure.patch(`/menu/${_id}`, menuItem)
-            console.log(newMenuRes)
+            
             if (newMenuRes.modifiedCount>0) {
                 reset();
                 Swal.fire({

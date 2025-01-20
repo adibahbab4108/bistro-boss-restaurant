@@ -43,15 +43,15 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            console.log("current user", currentUser);
             const userInfo = { email: currentUser?.email };
             if (currentUser) {
                 axiosPublic.post('/jwt', userInfo)
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.data) {
                             try {
                                 localStorage.setItem('access-token', res.data);
+                                setLoading(false);
                             } catch (error) {
                                 console.error("Error storing access-token", error);
                             }
@@ -60,11 +60,12 @@ const AuthProvider = ({ children }) => {
             } else {
                 try {
                     localStorage.removeItem('access-token');
+                    setLoading(false);
                 } catch (error) {
                     console.error("Error removing access-token", error);
                 }
             }
-            setLoading(false);
+
         });
         return () => unsubscribe();
     }, [axiosPublic, setUser, setLoading]);

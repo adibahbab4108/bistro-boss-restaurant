@@ -6,7 +6,6 @@ const AdminRoute = ({ children }) => {
     const { user, loading } = useAuth();
     const [isAdmin, isAdminPending] = useAdmin();
     const location = useLocation()
-    console.log("User ", user, "Is Admin: ",isAdmin, isAdminPending)
 
     if (loading || isAdminPending)
         return <progress className='progress w-screen mt-28 mx-32' ></progress>

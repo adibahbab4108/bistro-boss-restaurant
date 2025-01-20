@@ -38,7 +38,6 @@ const AllUsers = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/users/${user._id}`)
                     .then(res => {
-                        console.log(res.data)
                         if (res.data.deletedCount > 0) {
                             refetch();
                             Swal.fire({

@@ -17,7 +17,6 @@ const Register = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         // create user entry in the database
@@ -29,7 +28,6 @@ const Register = () => {
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log("user added to database")
                                     Swal.fire({
                                         icon: "success",
                                         title: "Registration Successful",
@@ -37,7 +35,6 @@ const Register = () => {
                                         timer: 1500
                                     });
                                 }
-                                console.log(res)
                             })
                     })
                 navigate('/login')

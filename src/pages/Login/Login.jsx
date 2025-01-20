@@ -11,7 +11,6 @@ const Login = () => {
     const { signInUser, setUser, user, loading } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation()
-    console.log(location.state)
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])

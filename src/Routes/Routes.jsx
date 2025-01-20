@@ -14,6 +14,9 @@ import AdminRoute from "./AdminRoute";
 import ManageItems from "../pages/Dashboard/ManageItems";
 import UpdateItem from "../pages/Dashboard/UpdateItem";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
+import UserHome from "../pages/Dashboard/UserHome";
+import AdminHome from "../pages/Dashboard/AdminHome";
 
 export const router = createBrowserRouter([
     {
@@ -47,6 +50,12 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         errorElement: <h1>Nothing is there</h1>,
         children: [
+            //user home
+            {
+                path: 'user-home',
+                element: <UserHome />
+
+            },
             {
                 path: 'cart',
                 element: <Cart />
@@ -55,8 +64,16 @@ export const router = createBrowserRouter([
                 path: 'payment',
                 element: <Payment />
             },
+            {
+                path: 'payment-history',
+                element: <PaymentHistory />
+            },
 
             //Admin routes
+            {
+                path: 'admin-home',
+                element: <AdminHome />
+            },
             {
                 path: 'add-items',
                 element: <AdminRoute><AddItems /></AdminRoute>
@@ -68,7 +85,7 @@ export const router = createBrowserRouter([
             {
                 path: 'update-item/:id',
                 element: <AdminRoute><UpdateItem /></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/menu/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_URL}/menu/${params.id}`)
             },
             {
                 path: 'users',

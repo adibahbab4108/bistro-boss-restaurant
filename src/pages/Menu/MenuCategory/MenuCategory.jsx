@@ -3,7 +3,6 @@ import Cover from "../../shared/Cover/Cover";
 import MenuItem from "../../shared/MenuItem/MenuItem";
 
 const MenuCategory = ({ items, title, img }) => {
-    console.log(items[0]?.category)
     return (
         <div className="pt-10">
             {
