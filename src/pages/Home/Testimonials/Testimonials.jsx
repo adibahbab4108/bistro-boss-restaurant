@@ -16,7 +16,8 @@ const Testimonials = () => {
         fetch(`${import.meta.env.VITE_URL}/reviews`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    })
+    },[reviews])
+    
     return (
         <div>
             <SectionTitile

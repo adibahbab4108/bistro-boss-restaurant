@@ -8,7 +8,6 @@ import AuthProvider from './providers/AuthProvider.jsx'
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from '@tanstack/react-query'
 
 const queryClient = new QueryClient()
@@ -22,5 +21,5 @@ createRoot(document.getElementById('root')).render(
         </HelmetProvider>
       </QueryClientProvider>
     </AuthProvider>
-  </StrictMode>,
+  </StrictMode>
 )

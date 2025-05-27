@@ -11,16 +11,16 @@ const Login = () => {
     const { signInUser, setUser, user, loading } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation()
-    useEffect(() => {
-        loadCaptchaEnginge(6);
-    }, [])
+    // useEffect(() => {
+    //     loadCaptchaEnginge(6);
+    // }, [])
 
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        if (!captchaMatch) return
+        // if (!captchaMatch) return
         signInUser(email, password)
             .then((userCredential) => {
                 // Signed in 
@@ -81,7 +81,7 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
@@ -95,7 +95,7 @@ const Login = () => {
                                 />                                {
                                     !captchaMatch && <small className='text-red-500'>captcha didn't match</small>
                                 }
-                            </div>
+                            </div> */}
                             <div className="form-control mt-6">
                                 <input type="submit" className="btn btn-primary" value="Login" />
                             </div>
